@@ -96,4 +96,4 @@ app.delete("/posts/:id", (req,res) => {
 app.listen(port, () => {
     console.log("listening to port : 8080");
 
-});
+}); 
