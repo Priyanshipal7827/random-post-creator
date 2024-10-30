@@ -1,41 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Posts!</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>all posts!</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-    <h1>Quora posts</h1>
-    <%for(post of posts){%>
-        <div class="post">
-            <h3 class="new">@<%=post.username%>
-            </h3>
-            <h4 class="new">
-                <%=post.contant%>
-            </h4>
-            <br>
-            <br>
-            <button></button> <a href="http://localhost:8080/posts/<%=post.id%>">Visit Your Post in detail.</a></button>
-            <br>
-            <br>
-            <button><a href="http://localhost:8080/posts/<%=post.id%>/edit">Edit Your Posts</a></button>
-            <br>
-            <br>
-            <form method="post" action="/posts/<%=post.id%>?_methos=DELETE">
-                <button>Delete Post</button>
-            </form>
-            
-
-        </div>
-        <% }%>
-            <br>
-            <br>
-            <button class="a"><a href="http://localhost:8080/posts/new">Create New Post</a></button>
-
-</body>
-
+  <body>
+    <h1>Quora Posts</h1>
+    <% for (let post of posts) { %>
+    <div class="post">
+      <h3 class="new">@<%= post.username %></h3>
+      <h4 class="new"><%= post.content %></h4>
+      <br />
+      <br />
+      <button>
+        <a href="http://localhost:8080/posts/<%= post.id %>"
+          >Visit Your Post in Detail</a
+        >
+      </button>
+      <br />
+      <br />
+      <button>
+        <a href="http://localhost:8080/posts/<%= post.id %>/edit"
+          >Edit Your Post</a
+        >
+      </button>
+      <br />
+      <br />
+      <form method="POST" action="/posts/<%= post.id %>?_method=DELETE">
+        <button type="submit">Delete Post</button>
+      </form>
+    </div>
+    <% } %>
+    <br />
+    <br />
+    <button class="a">
+      <a href="http://localhost:8080/posts/new">Create New Post</a>
+    </button>
+  </body>
 </html>
